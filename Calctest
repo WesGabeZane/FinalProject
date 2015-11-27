@@ -1,0 +1,209 @@
+
+/**
+ * This is a simple calculator! It can add, subtract, muliply, and divide.
+ * 
+ * @Wesley Kane 
+ * @9.25.15
+ */
+import java.util.Scanner;
+public class Calculator
+{
+   public static void main(String[] args)
+   {
+       
+    Scanner input = new Scanner(System.in); /** Creating a scanner **/
+      
+    System.out.println("Hello there! Would you like some help making a calculation? \n" +
+                       "* Please answer yes or no *"); /**User Prompts**/
+                       
+    String YesorNo = input.next(); /** Creating "YesorNo" variable**/
+    
+    while(!YesorNo.equals("yes")&&!YesorNo.equals("no")) /** While "YesorNo" does not equal "yes" and "no"...**/
+    {
+           System.out.println("Please don't make this difficult, enter a valid command (yes or no)!"); /** Asking for the user to enter the acceptable input**/
+           
+           YesorNo = input.next(); /** Setting the variable to check the while statement**/
+    }  
+    if(YesorNo.equals("no")) /** If they DON'T want to use the calculator.. **/
+    {
+           System.out.println("Just trying to be helpful...goodbye!");/**User Prompts**/
+           System.out.println("------------------------------------");
+    }
+    else if(YesorNo.equals("yes")) /** If they DO want to use the calculator.. **/
+    {
+           System.out.println("\nMerily!"); /**User Prompts**/
+           System.out.println("Now, would you like to use a decimal or integer calculator?\n");
+           
+           String DoubleorInt = input.next(); /** Creating variable "DoubleorInt" for the next user input"**/
+           
+      while(!DoubleorInt.equals("decimal")&&!DoubleorInt.equals("integer")) /** While "YesorNo" does not equal "yes" and "no"...**/
+      {
+        System.out.println("Please don't make this difficult, enter a valid command (integer or decimal)!"); /** Asking for the user to enter the acceptable input**/
+        DoubleorInt = input.next(); /** Setting the variable to check the while statement**/
+      } 
+       if(DoubleorInt.equals("decimal")) /**If the user requests a decimal calculator..**/
+       {
+           
+           System.out.println("\nEnter a decimal number!"); /**Asking for data**/
+           
+           while(!input.hasNextDouble()) /**True or false statement, if it's not a double..**/
+           {
+             System.out.println("You didn't enter a double! Try again!");
+             input.nextLine(); /**Waiting and ready for the the next user input**/
+           }
+                
+           double first_dec = input.nextDouble(); /**Creating double "first_dec" that the user will enter next**/
+          
+               
+           System.out.println("\nYou entered "+first_dec+"!\n"); /**User Prompts with the entered input**/
+               
+           System.out.println("Now, select an operation type! \n" +
+                              "* Available operations: +, -, x, and / *"); /** User prompts, asking for operation type**/               
+               
+           String operationTypeDec = input.next(); /** Creating string for the operation type for the "if" statements**/
+           
+           while(!operationTypeDec.equals("+")&&!operationTypeDec.equals("-")&&!operationTypeDec.equals("x")&&!operationTypeDec.equals("/")) /** If they dont enter = - x /...**/
+           {
+               System.out.println("You didn't enter a valid operation! Try again!");
+               operationTypeDec = input.next(); /**Assigning the operation variable to the user input**/
+           }
+           
+           System.out.println("\nEnter your second decimal number!"); /**Asking for data**/
+           
+           while(!input.hasNextDouble()) /**True or false statement, if it's not a double..**/
+           {
+               System.out.println("You didn't enter a double! Try again!");
+               input.nextLine();/**Waiting and ready for the the next user input**/
+           }
+               
+           double second_dec = input.nextDouble(); /** Creating double "second_dec" for next user input**/
+               
+           System.out.println("\nYou entered "+second_dec+"!\n"); /**User Prompts with the entered input**/
+
+        if(operationTypeDec.equals("+")) /**If user entered "+"..**/
+        {
+               System.out.println("Adding your numbers.."); /**User prompts**/
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_dec+" + "+second_dec+" = " + (first_dec + second_dec)); /** Performing the calculation and displaying the answer**/
+
+               System.out.println("Thanks for trusting me, have a good day!"); /**Ending prompts for the user**/
+               System.out.println("------------------------------------");
+        }
+        if(operationTypeDec.equals("-")) /**If user entered "-"..**/
+        {
+               System.out.println("Subtracting your numbers..");
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_dec+" - "+second_dec+" = " + (first_dec - second_dec)); /** Performing the calculation and displaying the answer**/
+                
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+        }
+        if(operationTypeDec.equals("x")) /**If user entered "x"..**/
+        {
+               System.out.println("Multipying your numbers..");
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_dec+" x "+second_dec+" = " + (first_dec * second_dec)); /** Performing the calculation and displaying the answer**/
+                
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+        }
+        if(operationTypeDec.equals("/")) /**If user entered "/"..**/
+        {
+               System.out.println("Dividing your numbers..");
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_dec+" / "+second_dec+" = " + (first_dec / second_dec)); /** Performing the calculation and displaying the answer**/
+  
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+               
+        }
+      }
+      if(DoubleorInt.equals("integer")) /**If the user requests a integer calculator**/
+        {
+           
+          System.out.println("Enter a whole number!"); /**Asking for data**/
+           
+          while(!input.hasNextInt()) /**True or false statement, if it's not a integer..**/
+          {
+               System.out.println("You didn't enter a whole number! Try again!");
+               input.nextLine(); /** Setting the variable to check the while statement**/
+          }
+           
+          int first_int = input.nextInt(); /**Creating integer "first_int" that the user will enter next**/
+
+          System.out.println("\nYou entered "+first_int+"!\n"); /**User Prompts with the entered input**/
+           
+          System.out.println("Now, select an operation type! \n" +
+                             "* Available operations: +, -, x, and / *"); /** User prompts, asking for operation type**/
+                    
+          String operationTypeInt = input.next(); /** Creating string for the operation type for the "if" statements**/
+          
+          while(!operationTypeInt.equals("+")&&!operationTypeInt.equals("-")&&!operationTypeInt.equals("x")&&!operationTypeInt.equals("/"))  /** If they dont enter = - x /...**/
+          {
+              System.out.println("You didn't enter a valid operation! Try again!");
+              operationTypeInt = input.next(); /**Assigning the operation variable to the user input**/
+          }   
+
+          System.out.println("\nEnter your second number!"); /**Asking for data**/
+           
+          while(!input.hasNextInt())//&&(int)input == 0)
+          {
+              System.out.println("You didn't enter a whole number! Try again!");
+              input.nextLine(); /**Waiting and ready for the the next user input**/
+          }
+           
+          int second_int = input.nextInt(); /** Creating int "second_int" for next user input**/
+           
+          System.out.println("\nYou entered "+second_int+"!\n"); /**User Prompts with the entered input**/
+
+          if(operationTypeInt.equals("+")) /**If user entered "+"..**/
+          {
+               System.out.println("Adding your numbers.."); /**User prompts**/
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_int+" + "+second_int+" = " + (first_int + second_int)); /**Performing calculation with assigned variable, (addition)**/
+               
+               System.out.println("Thanks for trusting me, have a good day!"); /**Ending prompts for the user**/
+               System.out.println("------------------------------------");
+          }
+          if(operationTypeInt.equals("-")) /**If user entered "-"..**/
+          {
+               System.out.println("Subtracting your numbers..");
+               System.out.println("Calculating....\n");
+               
+               System.out.println(""+first_int+" - "+second_int+" = " + (first_int - second_int)); /**Performing calculation with assigned variables, (subtraction)**/
+                
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+          }
+          if(operationTypeInt.equals("x")) /**If user entered "x"..**/
+          {
+               System.out.println("Multipying your numbers..");
+               System.out.println("Calculating....\n");
+                
+               System.out.println(""+first_int+" x "+second_int+" = " + (first_int * second_int)); /**Performing calculation with assigned variables, (multiplication)**/
+                
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+          }
+          if(operationTypeInt.equals("/")) /**If user entered "/"..**/
+          {
+               System.out.println("Dividing your numbers..");
+               System.out.println("Calculating....\n");
+               
+               /**Performing calculation with assigned variables and indicating the remainder using modulus, (division) and indicating remainders**/
+               System.out.println(""+first_int+" / "+second_int+" = " + (first_int / second_int) + "  Remainder " + (first_int % second_int)); 
+               
+               System.out.println("Thanks for trusting me, have a good day!");
+               System.out.println("------------------------------------");
+          }
+       }
+    }
+   }
+}
+
+
