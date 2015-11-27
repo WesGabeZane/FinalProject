@@ -1,0 +1,21 @@
+import java.util.Scanner;
+Scanner input = new Scanner(System.in);
+
+System.out.println("Hey what would you like to do?");
+System.out.println("Pick 1, two, or 3.");
+
+int choiceOne = input.nextInt();
+
+if(choiceOne = 1)
+{
+  System.out.println("wrong answer");
+}
+else if(choiceOne = 2)
+{
+  System.out.println("nice try");
+}
+else if(choiceOne = 3)
+{
+  System.out.println("nope");
+}
+			
